@@ -1,35 +1,19 @@
 class_name Player
 extends CharacterBody2D
 
-@export var animation_tree: AnimationTree # our reference to the animation tree
+@export var animationTree: AnimationTree # our reference to the animation tree
 @export var runSpeed: float #how fast the player runs
-var targetVelocity = Vector2.ZERO #target velocity which gets edited and applied to real velocity
-var lastFacingDirection := Vector2(0, -1)
+@onready var animationState = animationTree.get("parameters/playback") # grab animation state
+var direction: Vector2 # set direction
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var direction = Vector2.ZERO # reset the direction value
+func _physics_process(delta: float) -> void:
+	direction = Input.get_vector("left", "right", "up", "down").normalized() # get input
 	
-	#apply the direction value based on which button is being pressed
-	if Input.is_action_pressed("right"): #input for right
-		direction.x += 1 #positive is right
-	if Input.is_action_pressed("left"): #input for left
-		direction.x -= 1 #negative is left
-	if Input.is_action_pressed("up"): #input for up
-		direction.y -= 1 #negative is up
-	if Input.is_action_pressed("down"): #input for down
-		direction.y += 1 #positive is down
-	
-	#apply direction value and speed to target velocity
-	targetVelocity.x = direction.x * runSpeed #horizontal
-	targetVelocity.y = direction.y * runSpeed #vertical
-	velocity = targetVelocity #apply target velocity to actual velocity
-	
-	var idle = !velocity #set idle bool
-	if !idle: # check if the player isn't idle
-		lastFacingDirection = velocity.normalized() # set the direction of the sprite
-	
-	animation_tree.set("parameters/run/blend_position", lastFacingDirection) # play run animation
-	animation_tree.set("parameters/idle/blend_position", lastFacingDirection) # set animation to idle
+	if direction: #apply direction to velocity and blend spaces when player applies input
+		animationTree.set("parameters/run/blend_position", direction)
+		animationTree.set("parameters/idle/blend_position", direction)
+		velocity = direction * runSpeed
+	else: #stop player movement when player isn't applying input
+		velocity = Vector2.ZERO
 	
 	move_and_slide() #do physics things
