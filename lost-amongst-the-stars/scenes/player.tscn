@@ -13,7 +13,7 @@
 [ext_resource type="AnimationNodeStateMachine" uid="uid://ddxiffmtprpfd" path="res://animations/animationTree.tres" id="11_n3frl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51xgc"]
-size = Vector2(18, 9)
+size = Vector2(18, 17)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tpumh"]
 _data = {
@@ -30,6 +30,7 @@ _data = {
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("animationTree")]
+visibility_layer = 2
 script = ExtResource("1_kgwps")
 animationTree = NodePath("AnimationTree")
 runSpeed = 100.0
@@ -40,7 +41,7 @@ hframes = 4
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 14.5)
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_51xgc")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
