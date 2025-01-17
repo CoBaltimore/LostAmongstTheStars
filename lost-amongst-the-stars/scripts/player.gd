@@ -3,7 +3,6 @@ extends CharacterBody2D
 
 @export var animationTree: AnimationTree # our reference to the animation tree
 @export var runSpeed: float #how fast the player runs
-@onready var animationState = animationTree.get("parameters/playback") # grab animation state
 var direction: Vector2 # set direction
 
 func _physics_process(delta: float) -> void:
