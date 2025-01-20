@@ -13,7 +13,7 @@
 [ext_resource type="AnimationNodeStateMachine" uid="uid://ddxiffmtprpfd" path="res://animations/animationTree.tres" id="11_n3frl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51xgc"]
-size = Vector2(16, 18)
+size = Vector2(16, 17)
 
 [sub_resource type="Animation" id="Animation_isdsk"]
 length = 0.001
@@ -58,7 +58,7 @@ vframes = 4
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 9)
+position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_51xgc")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

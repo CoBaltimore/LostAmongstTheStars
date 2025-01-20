@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://m8uubk83a0a1"]
+[gd_scene load_steps=6 format=3 uid="uid://m8uubk83a0a1"]
 
 [ext_resource type="PackedScene" uid="uid://ce4i1j2f1di1d" path="res://scenes/player.tscn" id="1_geu5o"]
+[ext_resource type="PackedScene" uid="uid://bgpq50pmfitrr" path="res://scenes/slime.tscn" id="1_skj1t"]
 [ext_resource type="Texture2D" uid="uid://2opbktj7a0pl" path="res://sprites/tile.png" id="2_1vrv7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8pc2d"]
@@ -94,7 +95,11 @@ sources/0 = SubResource("TileSetAtlasSource_8pc2d")
 
 [node name="World" type="Node2D"]
 
+[node name="Slime" parent="." instance=ExtResource("1_skj1t")]
+position = Vector2(21, 2)
+
 [node name="Player" parent="." instance=ExtResource("1_geu5o")]
+position = Vector2(0, 1)
 
 [node name="TileMap" type="TileMap" parent="."]
 show_behind_parent = true
