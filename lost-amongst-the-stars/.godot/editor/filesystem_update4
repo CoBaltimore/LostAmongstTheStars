@@ -1,0 +1,5 @@
+res://scenes/slime.tscn
+res://Animations/animationTree.tres
+res://scripts/states/state.gd
+res://scripts/states/StateMachine.gd
+res://scenes/world.tscn
