@@ -1,0 +1,27 @@
+[gd_resource type="AnimationNodeBlendSpace2D" load_steps=6 format=3 uid="uid://ctp5pirn3s5n5"]
+
+[sub_resource type="GDScript" id="GDScript_apmbm"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0halo"]
+animation = &"run down"
+script = SubResource("GDScript_apmbm")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0mqvx"]
+animation = &"run up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vg240"]
+animation = &"run left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1nlkv"]
+animation = &"run right"
+
+[resource]
+blend_point_0/node = SubResource("AnimationNodeAnimation_0halo")
+blend_point_0/pos = Vector2(0, 1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_0mqvx")
+blend_point_1/pos = Vector2(0, -1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_vg240")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_1nlkv")
+blend_point_3/pos = Vector2(1, 0)
+blend_mode = 1
