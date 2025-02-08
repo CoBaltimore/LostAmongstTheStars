@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgpq50pmfitrr"]
+[gd_scene load_steps=14 format=3 uid="uid://bgpq50pmfitrr"]
 
 [ext_resource type="Texture2D" uid="uid://cvq30pxgbvh3k" path="res://sprites/Slime.png" id="1_7a5x3"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_ah08q"]
-[ext_resource type="Script" path="res://scripts/stats.gd" id="6_l5xag"]
+[ext_resource type="PackedScene" uid="uid://qu01kp1jtvtn" path="res://scenes/stats_component.tscn" id="3_pb0e8"]
+[ext_resource type="PackedScene" uid="uid://cb45f81kivlvk" path="res://scenes/damage_text.tscn" id="4_jhkff"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sd2m6"]
 size = Vector2(16, 11)
@@ -157,14 +158,12 @@ libraries = {
 "": SubResource("AnimationLibrary_0v14k")
 }
 
-[node name="Stats Component" type="Node2D" parent="." node_paths=PackedStringArray("damageNumbersOrigin")]
-script = ExtResource("6_l5xag")
-dex = 3.0
-damageNumbersOrigin = NodePath("")
-
 [node name="AutoCooldown" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="DamageNumbersOrigin" type="Label" parent="."]
+[node name="Stats Component" parent="." instance=ExtResource("3_pb0e8")]
+
+[node name="DamageText" parent="." instance=ExtResource("4_jhkff")]
+position = Vector2(0, -16)
 
 [connection signal="timeout" from="AutoCooldown" to="Stats Component" method="_on_auto_cooldown_timeout"]

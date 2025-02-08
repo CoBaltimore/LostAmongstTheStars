@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://ce4i1j2f1di1d"]
+[gd_scene load_steps=22 format=3 uid="uid://ce4i1j2f1di1d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kgwps"]
 [ext_resource type="Texture2D" uid="uid://crfvlc6d4ewkk" path="res://sprites/Axil directionalaseprite.png" id="2_igi0l"]
@@ -13,10 +13,11 @@
 [ext_resource type="Animation" uid="uid://dp8wqrcpwjtsm" path="res://Animations/run up.res" id="10_4iy6g"]
 [ext_resource type="AnimationNodeStateMachine" uid="uid://ddxiffmtprpfd" path="res://Animations/animationTree.tres" id="11_n3frl"]
 [ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="12_coxpx"]
-[ext_resource type="Script" path="res://scripts/stats.gd" id="12_f233i"]
 [ext_resource type="Script" path="res://scripts/states/player states/battle.gd" id="13_8t6jd"]
 [ext_resource type="Script" path="res://scripts/states/player states/field.gd" id="13_40lu3"]
 [ext_resource type="Script" path="res://scripts/states/player states/defeat.gd" id="14_krqkh"]
+[ext_resource type="PackedScene" uid="uid://qu01kp1jtvtn" path="res://scenes/stats_component.tscn" id="17_70yjp"]
+[ext_resource type="PackedScene" uid="uid://cb45f81kivlvk" path="res://scenes/damage_text.tscn" id="18_6w8mr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51xgc"]
 size = Vector2(16, 17)
@@ -51,6 +52,7 @@ _data = {
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationTree") groups=["Player"]]
 visibility_layer = 2
+z_index = -1
 script = ExtResource("1_kgwps")
 animationTree = NodePath("AnimationTree")
 runSpeed = 100.0
@@ -68,6 +70,7 @@ shape = SubResource("RectangleShape2D_51xgc")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Control" parent="Camera2D" instance=ExtResource("3_h6wpf")]
+z_index = 1
 offset_left = -128.0
 offset_top = -120.0
 offset_right = -128.0
@@ -105,18 +108,11 @@ playerStats = NodePath("../../Stats Component")
 player = NodePath("../..")
 autoCooldownTimer = NodePath("../../autoCooldown")
 
-[node name="Stats Component" type="Node2D" parent="." node_paths=PackedStringArray("damageNumbersOrigin")]
-script = ExtResource("12_f233i")
-MAXHP = 25.0
-pow = 2.0
-def = 2.0
-damageNumbersOrigin = NodePath("")
+[node name="Stats Component" parent="." node_paths=PackedStringArray("damageNumbers") instance=ExtResource("17_70yjp")]
+damageNumbers = NodePath("../DamageText")
 
 [node name="autoCooldown" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="DamageNumbersOrigin" type="Label" parent="."]
-offset_top = -8.0
-offset_bottom = -8.0
-
-[connection signal="timeout" from="autoCooldown" to="Stats Component" method="_on_auto_cooldown_timeout"]
+[node name="DamageText" parent="." instance=ExtResource("18_6w8mr")]
+position = Vector2(0, -28)

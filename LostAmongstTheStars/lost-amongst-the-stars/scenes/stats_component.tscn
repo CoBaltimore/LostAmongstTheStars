@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://qu01kp1jtvtn"]
+
+[ext_resource type="Script" path="res://scripts/stats.gd" id="1_javo7"]
+
+[node name="Stats Component" type="Node2D"]
+script = ExtResource("1_javo7")
+MAXHP = 25.0
+pow = 2.0

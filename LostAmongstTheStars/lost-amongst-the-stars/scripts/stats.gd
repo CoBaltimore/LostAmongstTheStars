@@ -11,7 +11,7 @@ var hp: float #current health.
 var dexRoll = RandomNumberGenerator.new() #rolls number that determines whether an attack is dodged
 var isCooled = true # tells the stat block if the timer for autoAttaks are cooled
 
-@export var damageNumbersOrigin: Node2D # origin for the damage number appearance
+@export var damageNumbers: Node2D # origin for the damage number appearance
 
 func _ready(): 
 	hp = MAXHP #set hp to max at start of game
@@ -24,11 +24,10 @@ func damage(attack: stats):
 	var reciever = dexRoll.randf_range(1, dex) #roll for dodge
 	var attacker = dexRoll.randf_range(1, attack.dex) # roll for hit
 	var damage = (attack.pow - def) + 1 #calculate damage
+	var damageText = str(damage).pad_decimals(0)
 	# if attacker rolls higher than reciever, then land the hit
 	if attacker >= reciever:
 		hp -= damage #remove hp
-		DamageNumbers.displayNumber(damage, damageNumbersOrigin.global_position) #play the damage number
-
 #checks the hp and tells whether the HP has reached/passed 0.
 func checkForLife() -> bool:
 	if hp <= 0:
