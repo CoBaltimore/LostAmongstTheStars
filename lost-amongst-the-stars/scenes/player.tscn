@@ -1,16 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://ce4i1j2f1di1d"]
+[gd_scene load_steps=22 format=3 uid="uid://ce4i1j2f1di1d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kgwps"]
 [ext_resource type="Texture2D" uid="uid://crfvlc6d4ewkk" path="res://sprites/Axil directionalaseprite.png" id="2_igi0l"]
-[ext_resource type="Animation" uid="uid://b3p58awdtefu8" path="res://animations/idle down.res" id="3_0332k"]
-[ext_resource type="Animation" uid="uid://cktnhgr2fs4mf" path="res://animations/idle left.res" id="4_o631b"]
-[ext_resource type="Animation" uid="uid://xpnith4e0w5s" path="res://animations/idle right.res" id="5_j2bs3"]
-[ext_resource type="Animation" uid="uid://csbmvjb23w1mw" path="res://animations/idle up.res" id="6_mj2bb"]
-[ext_resource type="Animation" uid="uid://b4f58ohuxslwd" path="res://animations/run down.res" id="7_txwr7"]
-[ext_resource type="Animation" uid="uid://dgluv4mxwbd5w" path="res://animations/run left.res" id="8_7w8l1"]
-[ext_resource type="Animation" uid="uid://c6pep5ma8sims" path="res://animations/run right.res" id="9_5yv7t"]
-[ext_resource type="Animation" uid="uid://dp8wqrcpwjtsm" path="res://animations/run up.res" id="10_4iy6g"]
-[ext_resource type="AnimationNodeStateMachine" uid="uid://ddxiffmtprpfd" path="res://animations/animationTree.tres" id="11_n3frl"]
+[ext_resource type="Animation" uid="uid://b3p58awdtefu8" path="res://Animations/idle down.res" id="3_0332k"]
+[ext_resource type="PackedScene" uid="uid://d1uf1dyyiyu5t" path="res://scenes/HUD.tscn" id="3_h6wpf"]
+[ext_resource type="Animation" uid="uid://cktnhgr2fs4mf" path="res://Animations/idle left.res" id="4_o631b"]
+[ext_resource type="Animation" uid="uid://xpnith4e0w5s" path="res://Animations/idle right.res" id="5_j2bs3"]
+[ext_resource type="Animation" uid="uid://csbmvjb23w1mw" path="res://Animations/idle up.res" id="6_mj2bb"]
+[ext_resource type="Animation" uid="uid://b4f58ohuxslwd" path="res://Animations/run down.res" id="7_txwr7"]
+[ext_resource type="Animation" uid="uid://dgluv4mxwbd5w" path="res://Animations/run left.res" id="8_7w8l1"]
+[ext_resource type="Animation" uid="uid://c6pep5ma8sims" path="res://Animations/run right.res" id="9_5yv7t"]
+[ext_resource type="Animation" uid="uid://dp8wqrcpwjtsm" path="res://Animations/run up.res" id="10_4iy6g"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://ddxiffmtprpfd" path="res://Animations/animationTree.tres" id="11_n3frl"]
+[ext_resource type="Script" path="res://scripts/states/state_machine.gd" id="12_coxpx"]
+[ext_resource type="Script" path="res://scripts/states/player states/battle.gd" id="13_8t6jd"]
+[ext_resource type="Script" path="res://scripts/states/player states/field.gd" id="13_40lu3"]
+[ext_resource type="Script" path="res://scripts/states/player states/defeat.gd" id="14_krqkh"]
+[ext_resource type="PackedScene" uid="uid://qu01kp1jtvtn" path="res://scenes/stats_component.tscn" id="17_70yjp"]
+[ext_resource type="PackedScene" uid="uid://cb45f81kivlvk" path="res://scenes/damage_text.tscn" id="18_6w8mr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51xgc"]
 size = Vector2(16, 17)
@@ -43,36 +50,69 @@ _data = {
 "run up": ExtResource("10_4iy6g")
 }
 
-[node name="Player" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." node_paths=PackedStringArray("animationTree")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationTree") groups=["Player"]]
 visibility_layer = 2
+z_index = -1
 script = ExtResource("1_kgwps")
 animationTree = NodePath("AnimationTree")
 runSpeed = 100.0
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_igi0l")
-hframes = 8
+hframes = 4
 vframes = 4
 frame = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="landHitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8.5)
 shape = SubResource("RectangleShape2D_51xgc")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D"]
+[node name="Control" parent="Camera2D" instance=ExtResource("3_h6wpf")]
+z_index = 1
+offset_left = -128.0
+offset_top = -120.0
+offset_right = -128.0
+offset_bottom = -120.0
+scale = Vector2(1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_tpumh")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="CharacterBody2D"]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 deterministic = false
 tree_root = ExtResource("11_n3frl")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/idle/blend_position = Vector2(0, 0)
 parameters/run/blend_position = Vector2(0, 0)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initialState")]
+script = ExtResource("12_coxpx")
+initialState = NodePath("field")
+
+[node name="field" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("13_40lu3")
+player = NodePath("../..")
+
+[node name="defeat" type="Node" parent="StateMachine"]
+script = ExtResource("14_krqkh")
+
+[node name="battle" type="Node" parent="StateMachine" node_paths=PackedStringArray("playerStats", "player", "autoCooldownTimer")]
+script = ExtResource("13_8t6jd")
+playerStats = NodePath("../../Stats Component")
+player = NodePath("../..")
+autoCooldownTimer = NodePath("../../autoCooldown")
+
+[node name="Stats Component" parent="." node_paths=PackedStringArray("damageNumbers") instance=ExtResource("17_70yjp")]
+damageNumbers = NodePath("../DamageText")
+
+[node name="autoCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="DamageText" parent="." instance=ExtResource("18_6w8mr")]
+position = Vector2(0, -28)

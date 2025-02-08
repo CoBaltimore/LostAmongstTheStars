@@ -1,7 +1,8 @@
-class_name state
+class_name State
 extends Node
-
 signal Transitioned
+
+#this is the blueprint for other state scripts
 
 func Enter():
 	pass
@@ -12,5 +13,5 @@ func Exit():
 func Update(_delta: float):
 	pass
 
-func Physics_Update(_delta: float):
+func physicsUpdate(_delta: float):
 	pass
