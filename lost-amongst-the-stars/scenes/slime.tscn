@@ -161,9 +161,13 @@ libraries = {
 [node name="AutoCooldown" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="Stats Component" parent="." instance=ExtResource("3_pb0e8")]
+[node name="Stats Component" parent="." node_paths=PackedStringArray("damageNumbers") instance=ExtResource("3_pb0e8")]
+MAXHP = 10.0
+pow = 1.0
+dex = 2.0
+damageNumbers = NodePath("../DamageText")
 
 [node name="DamageText" parent="." instance=ExtResource("4_jhkff")]
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 
 [connection signal="timeout" from="AutoCooldown" to="Stats Component" method="_on_auto_cooldown_timeout"]

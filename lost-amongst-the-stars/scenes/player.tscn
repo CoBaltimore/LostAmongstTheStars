@@ -109,6 +109,7 @@ player = NodePath("../..")
 autoCooldownTimer = NodePath("../../autoCooldown")
 
 [node name="Stats Component" parent="." node_paths=PackedStringArray("damageNumbers") instance=ExtResource("17_70yjp")]
+dex = 6.0
 damageNumbers = NodePath("../DamageText")
 
 [node name="autoCooldown" type="Timer" parent="."]
@@ -116,3 +117,5 @@ wait_time = 2.0
 
 [node name="DamageText" parent="." instance=ExtResource("18_6w8mr")]
 position = Vector2(0, -28)
+
+[connection signal="timeout" from="autoCooldown" to="Stats Component" method="_on_auto_cooldown_timeout"]

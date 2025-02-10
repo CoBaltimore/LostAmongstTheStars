@@ -28,6 +28,10 @@ func damage(attack: stats):
 	# if attacker rolls higher than reciever, then land the hit
 	if attacker >= reciever:
 		hp -= damage #remove hp
+	else:
+		damageText = "MISS"
+	textDisplayer.damageText(damageText, damageNumbers.global_position)
+
 #checks the hp and tells whether the HP has reached/passed 0.
 func checkForLife() -> bool:
 	if hp <= 0:

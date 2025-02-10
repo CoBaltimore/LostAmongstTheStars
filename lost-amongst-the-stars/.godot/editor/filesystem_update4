@@ -1,0 +1,8 @@
+res://scenes/world.tscn
+res://fonts/UI font.tres
+res://Animations/animationTree.tres
+res://scripts/stats.gd
+res://scenes/damage_text.tscn
+res://scenes/HUD.tscn
+res://scenes/slime.tscn
+res://scenes/player.tscn
