@@ -1,0 +1,105 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1uf1dyyiyu5t"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_tga4o"]
+[ext_resource type="Texture2D" uid="uid://3dp0woh6kuyy" path="res://sprites/HUD test.png" id="2_7tnl6"]
+[ext_resource type="LabelSettings" uid="uid://dms3p0s8bo0ct" path="res://fonts/UI font.tres" id="3_2uidt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+script = ExtResource("1_tga4o")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_top = -4.0
+offset_right = 256.0
+offset_bottom = 236.0
+texture = ExtResource("2_7tnl6")
+
+[node name="CharacterLvl1" type="Label" parent="."]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 44.0
+offset_right = 74.0
+offset_bottom = 56.0
+text = "lv:"
+label_settings = ExtResource("3_2uidt")
+
+[node name="CharacterName1" type="Label" parent="."]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 43.5
+offset_right = 47.0
+offset_bottom = 55.5
+text = "NAME
+"
+label_settings = ExtResource("3_2uidt")
+
+[node name="CharacterHP1" type="Label" parent="."]
+layout_mode = 2
+offset_left = 16.5
+offset_top = 54.5
+offset_right = 83.5
+offset_bottom = 73.5
+text = "HP:"
+label_settings = ExtResource("3_2uidt")
+
+[node name="CharacterLvl2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 75.5
+offset_right = 74.0
+offset_bottom = 87.5
+text = "lv:"
+label_settings = ExtResource("3_2uidt")
+
+[node name="CharacterName2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 16.5
+offset_top = 75.5
+offset_right = 46.5
+offset_bottom = 87.5
+text = "NAME"
+label_settings = ExtResource("3_2uidt")
+
+[node name="CharacterHP2" type="Label" parent="."]
+layout_mode = 2
+offset_left = 16.5
+offset_top = 86.0
+offset_right = 83.5
+offset_bottom = 105.0
+text = "HP:"
+label_settings = ExtResource("3_2uidt")
+
+[node name="CharacterName3" type="Label" parent="."]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 108.5
+offset_right = 46.0
+offset_bottom = 120.5
+text = "NAME"
+label_settings = ExtResource("3_2uidt")
+
+[node name="CharacterLvl3" type="Label" parent="."]
+layout_mode = 2
+offset_left = 48.5
+offset_top = 108.5
+offset_right = 73.5
+offset_bottom = 120.5
+text = "lv:"
+label_settings = ExtResource("3_2uidt")
+
+[node name="CharacterHP3" type="Label" parent="."]
+layout_mode = 2
+offset_left = 16.0
+offset_top = 119.0
+offset_right = 83.0
+offset_bottom = 138.0
+text = "HP:"
+label_settings = ExtResource("3_2uidt")

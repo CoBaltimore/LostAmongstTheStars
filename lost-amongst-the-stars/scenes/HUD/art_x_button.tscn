@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdowgjh5s2rjc"]
+
+[ext_resource type="Texture2D" uid="uid://bhu6uq6wa8juw" path="res://sprites/arts icons/debuff1.png" id="1_bmg15"]
+[ext_resource type="Script" path="res://scripts/arts/art_x_button.gd" id="2_gm4hi"]
+[ext_resource type="Texture2D" uid="uid://basdrnmddobbe" path="res://sprites/arts icons/progress.png" id="3_6vg4v"]
+[ext_resource type="LabelSettings" uid="uid://dms3p0s8bo0ct" path="res://fonts/UI font.tres" id="4_ap3vk"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_mwkeg"]
+device = -1
+physical_keycode = 90
+unicode = 122
+
+[sub_resource type="Shortcut" id="Shortcut_yew5p"]
+events = [SubResource("InputEventKey_mwkeg")]
+
+[node name="ArtXButton" type="TextureButton"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -744.0
+offset_bottom = -704.0
+grow_horizontal = 2
+grow_vertical = 2
+action_mode = 0
+shortcut = SubResource("Shortcut_yew5p")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+texture_normal = ExtResource("1_bmg15")
+script = ExtResource("2_gm4hi")
+
+[node name="cooldown" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+max_value = 6.0
+fill_mode = 2
+nine_patch_stretch = true
+texture_progress = ExtResource("3_6vg4v")
+tint_progress = Color(0.227451, 0.227451, 0.227451, 0.843137)
+
+[node name="ButtonLabel" type="Label" parent="."]
+layout_mode = 0
+offset_top = -12.0
+offset_right = 16.0
+text = "  X
+"
+label_settings = ExtResource("4_ap3vk")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

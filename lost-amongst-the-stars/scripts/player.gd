@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var animationTree: AnimationTree # our reference to the animation tree
 @export var runSpeed: float #how fast the player runs
 
-
 var direction: Vector2 # set direction
 
 func _physics_process(delta: float) -> void:
@@ -16,5 +15,4 @@ func _physics_process(delta: float) -> void:
 		velocity = direction * runSpeed
 	else: #stop player movement when player isn't applying input
 		velocity = Vector2.ZERO
-	
 	move_and_slide() #do physics things

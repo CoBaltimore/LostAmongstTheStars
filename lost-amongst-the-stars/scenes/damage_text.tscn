@@ -7,6 +7,7 @@
 script = ExtResource("1_goj3k")
 
 [node name="Label" type="Label" parent="."]
+z_index = 1
 offset_right = 40.0
 offset_bottom = 19.0
 label_settings = ExtResource("1_kictk")

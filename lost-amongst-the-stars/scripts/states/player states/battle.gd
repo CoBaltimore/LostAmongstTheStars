@@ -1,5 +1,6 @@
 class_name battle
 extends State
+signal attackLanded
 
 #reference to proper player nodes
 @export var playerStats: stats #player's stat component
@@ -50,7 +51,8 @@ func playerAutoAttack():
 	#if so, restart the timer and play the damage function on the enemy's stat component
 	if playerStats.isCooled:
 		autoCooldownTimer.start()
-		enemyStats.damage(playerStats)
+		if enemyStats.damage(playerStats):
+			emit_signal("attackLanded")
 		playerStats.isCooled = false # this tells the game that the cooldown is in effect.
 
 func enemyAutoAttack():
