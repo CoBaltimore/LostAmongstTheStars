@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ce4i1j2f1di1d"]
+[gd_scene load_steps=24 format=3 uid="uid://ce4i1j2f1di1d"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kgwps"]
 [ext_resource type="Texture2D" uid="uid://crfvlc6d4ewkk" path="res://sprites/Axil directionalaseprite.png" id="2_igi0l"]
@@ -17,9 +17,9 @@
 [ext_resource type="Script" path="res://scripts/states/player states/defeat.gd" id="14_krqkh"]
 [ext_resource type="PackedScene" uid="uid://qu01kp1jtvtn" path="res://scenes/stats_component.tscn" id="17_70yjp"]
 [ext_resource type="PackedScene" uid="uid://cb45f81kivlvk" path="res://scenes/damage_text.tscn" id="18_6w8mr"]
-[ext_resource type="PackedScene" uid="uid://diw0iqoq2ikm2" path="res://scenes/HUD/art_z_button.tscn" id="18_gtcen"]
+[ext_resource type="PackedScene" uid="uid://d1uf1dyyiyu5t" path="res://scenes/HUD/HUD.tscn" id="19_3k2j6"]
 [ext_resource type="Script" path="res://scripts/arts/axil's_arts.gd" id="19_4c0ey"]
-[ext_resource type="PackedScene" uid="uid://cdowgjh5s2rjc" path="res://scenes/HUD/art_x_button.tscn" id="20_360iw"]
+[ext_resource type="Script" path="res://scripts/hp_label.gd" id="27_c3417"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51xgc"]
 size = Vector2(16, 17)
@@ -51,12 +51,6 @@ _data = {
 "run right": ExtResource("9_5yv7t"),
 "run up": ExtResource("10_4iy6g")
 }
-
-[sub_resource type="InputEventKey" id="InputEventKey_y2mp6"]
-unicode = 7
-
-[sub_resource type="Shortcut" id="Shortcut_8p0jf"]
-events = [SubResource("InputEventKey_y2mp6")]
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("animationTree") groups=["Player"]]
 visibility_layer = 2
@@ -110,53 +104,64 @@ player = NodePath("../..")
 autoCooldownTimer = NodePath("../../autoCooldown")
 
 [node name="autoCooldown" type="Timer" parent="."]
+wait_time = 1.4
 
 [node name="Stats Component" parent="." node_paths=PackedStringArray("damageNumbers", "autoCooldown") instance=ExtResource("17_70yjp")]
-MAXHP = 30.0
-pow = 3.0
-dex = 7.0
+MAXHP = 40.0
+pow = 6.0
+dex = 10.0
+eva = 4.0
 damageNumbers = NodePath("../DamageText")
 autoCooldown = NodePath("../autoCooldown")
 
 [node name="DamageText" parent="." instance=ExtResource("18_6w8mr")]
 position = Vector2(0, -28)
 
-[node name="ArtZButton" parent="." node_paths=PackedStringArray("artList") instance=ExtResource("18_gtcen")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -81.0
-offset_top = 75.0
-offset_right = -65.0
-offset_bottom = 91.0
-grow_horizontal = 1
-grow_vertical = 1
-shortcut = SubResource("Shortcut_8p0jf")
-artList = NodePath("../Axil\'sArts")
-
-[node name="ArtXButton" parent="." node_paths=PackedStringArray("artList") instance=ExtResource("20_360iw")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = -64.0
-offset_top = 75.0
-offset_right = -48.0
-offset_bottom = 91.0
-grow_horizontal = 1
-grow_vertical = 1
-artList = NodePath("../Axil\'sArts")
-
 [node name="Axil\'sArts" type="Node" parent="." node_paths=PackedStringArray("playerStats")]
 script = ExtResource("19_4c0ey")
 playerStats = NodePath("../Stats Component")
-zArtCooldown = 7
-xArtCooldown = 5
-cArtCooldown = 8
-vArtCooldown = 9
-bArtCooldown = 6
-nArtCooldown = 10
-talentCooldown = 6
+zArtCooldown = 10
+xArtCooldown = 8
+cArtCooldown = 12
+vArtCooldown = 10
+bArtCooldown = 13
+nArtCooldown = 20
+talentCooldown = 10
 
-[connection signal="attackLanded" from="StateMachine/battle" to="ArtZButton" method="_on_battle_attack_landed"]
-[connection signal="attackLanded" from="StateMachine/battle" to="ArtXButton" method="_on_battle_attack_landed"]
+[node name="HUD" parent="." instance=ExtResource("19_3k2j6")]
+
+[node name="ArtZButton" parent="HUD" index="0" node_paths=PackedStringArray("artList")]
+artList = NodePath("../../Axil\'sArts")
+
+[node name="ArtCButton" parent="HUD" index="1" node_paths=PackedStringArray("artList", "playerStats")]
+artList = NodePath("../../Axil\'sArts")
+playerStats = NodePath("../../Stats Component")
+
+[node name="ArtXButton" parent="HUD" index="2" node_paths=PackedStringArray("artList")]
+artList = NodePath("../../Axil\'sArts")
+
+[node name="ArtVButton" parent="HUD" index="3" node_paths=PackedStringArray("artList")]
+artList = NodePath("../../Axil\'sArts")
+
+[node name="PlayerLabelControl" parent="HUD" index="5" node_paths=PackedStringArray("playerStats", "hpLabel", "hpBar")]
+script = ExtResource("27_c3417")
+playerStats = NodePath("../../Stats Component")
+hpLabel = NodePath("HPLabel")
+hpBar = NodePath("TextureProgressBar")
+
+[node name="TextureProgressBar" parent="HUD/PlayerLabelControl" index="1"]
+value = 40.0
+
+[node name="HPLabel" parent="HUD/PlayerLabelControl" index="2"]
+text = ""
+
+[connection signal="buttonStart" from="StateMachine/field" to="HUD" method="_on_field_button_start"]
+[connection signal="attackLanded" from="StateMachine/battle" to="HUD/ArtZButton" method="_on_battle_attack_landed"]
+[connection signal="attackLanded" from="StateMachine/battle" to="HUD/ArtCButton" method="_on_battle_attack_landed"]
+[connection signal="attackLanded" from="StateMachine/battle" to="HUD/ArtXButton" method="_on_battle_attack_landed"]
+[connection signal="attackLanded" from="StateMachine/battle" to="HUD/ArtVButton" method="_on_battle_attack_landed"]
+[connection signal="buttonsStop" from="StateMachine/battle" to="HUD" method="_on_battle_buttons_stop"]
+[connection signal="damageRecieved" from="StateMachine/battle" to="HUD/PlayerLabelControl" method="_on_battle_damage_recieved"]
 [connection signal="timeout" from="autoCooldown" to="Stats Component" method="_on_auto_cooldown_timeout"]
+
+[editable path="HUD"]

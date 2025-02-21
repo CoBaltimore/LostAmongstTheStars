@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
 ::res://::1739140500
 ::res://Animations/::1739141006
-animationTree.tres::AnimationNodeStateMachine::7417804217286838849::1739895224::0::1::::<><>::
+animationTree.tres::AnimationNodeStateMachine::7417804217286838849::1740157390::0::1::::<><>::
 idle down.res::Animation::4384554446998317453::1739015824::0::1::::<><>::
 idle left.res::Animation::5514755145192915473::1739015824::0::1::::<><>::
 idle right.res::Animation::1646113687324110030::1739015824::0::1::::<><>::
@@ -15,40 +15,46 @@ RunAnimBlend.tres::AnimationNodeBlendSpace2D::6139243806588578176::1739015824::0
 earthbound.ttf::FontFile::6620850457557037089::1739015824::1739196618::1::::<><>::
 EnemyDamage.tres::LabelSettings::4527171119465278770::1739015824::0::1::::<><>::
 PlayerDamage.tres::LabelSettings::2601359194705190272::1739015824::0::1::::<><>::
-UI font.tres::LabelSettings::8040415179406319835::1739895224::0::1::::<><>::
+UI font.tres::LabelSettings::8040415179406319835::1740157390::0::1::::<><>::
 ::res://scenes/::1739141266
-damage_text.tscn::PackedScene::4904729378545839720::1739903714::0::1::::<><>::res://scripts/damgeText.gd<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
+damage_text.tscn::PackedScene::4904729378545839720::1740154646::0::1::::<><>::res://scripts/damgeText.gd<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
 detection_component.tscn::PackedScene::2149351616784193730::1739015824::0::1::::<><>::
 health.tscn::PackedScene::2510239726175691029::1739015824::0::1::::<><>::res://scripts/stats.gd
-player.tscn::PackedScene::5113996378071644591::1739903714::0::1::::<><>::res://scripts/player.gd<>uid://crfvlc6d4ewkk::::res://sprites/Axil directionalaseprite.png<>uid://b3p58awdtefu8::::res://Animations/idle down.res<>uid://cktnhgr2fs4mf::::res://Animations/idle left.res<>uid://xpnith4e0w5s::::res://Animations/idle right.res<>uid://csbmvjb23w1mw::::res://Animations/idle up.res<>uid://b4f58ohuxslwd::::res://Animations/run down.res<>uid://dgluv4mxwbd5w::::res://Animations/run left.res<>uid://c6pep5ma8sims::::res://Animations/run right.res<>uid://dp8wqrcpwjtsm::::res://Animations/run up.res<>uid://ddxiffmtprpfd::::res://Animations/animationTree.tres<>res://scripts/states/state_machine.gd<>res://scripts/states/player states/battle.gd<>res://scripts/states/player states/field.gd<>res://scripts/states/player states/defeat.gd<>uid://qu01kp1jtvtn::::res://scenes/stats_component.tscn<>uid://cb45f81kivlvk::::res://scenes/damage_text.tscn<>uid://diw0iqoq2ikm2::::res://scenes/HUD/art_z_button.tscn<>res://scripts/arts/axil's_arts.gd<>uid://cdowgjh5s2rjc::::res://scenes/HUD/art_x_button.tscn
-slime.tscn::PackedScene::2839545794341665903::1739903858::0::1::::<><>::uid://cvq30pxgbvh3k::::res://sprites/Slime.png<>res://scripts/slime.gd<>uid://qu01kp1jtvtn::::res://scenes/stats_component.tscn<>uid://cb45f81kivlvk::::res://scenes/damage_text.tscn
+player.tscn::PackedScene::5113996378071644591::1740157986::0::1::::<><>::res://scripts/player.gd<>uid://crfvlc6d4ewkk::::res://sprites/Axil directionalaseprite.png<>uid://b3p58awdtefu8::::res://Animations/idle down.res<>uid://cktnhgr2fs4mf::::res://Animations/idle left.res<>uid://xpnith4e0w5s::::res://Animations/idle right.res<>uid://csbmvjb23w1mw::::res://Animations/idle up.res<>uid://b4f58ohuxslwd::::res://Animations/run down.res<>uid://dgluv4mxwbd5w::::res://Animations/run left.res<>uid://c6pep5ma8sims::::res://Animations/run right.res<>uid://dp8wqrcpwjtsm::::res://Animations/run up.res<>uid://ddxiffmtprpfd::::res://Animations/animationTree.tres<>res://scripts/states/state_machine.gd<>res://scripts/states/player states/battle.gd<>res://scripts/states/player states/field.gd<>res://scripts/states/player states/defeat.gd<>uid://qu01kp1jtvtn::::res://scenes/stats_component.tscn<>uid://cb45f81kivlvk::::res://scenes/damage_text.tscn<>uid://d1uf1dyyiyu5t::::res://scenes/HUD/HUD.tscn<>res://scripts/arts/axil's_arts.gd<>res://scripts/hp_label.gd
+slime.tscn::PackedScene::2839545794341665903::1740154648::0::1::::<><>::uid://cvq30pxgbvh3k::::res://sprites/Slime.png<>res://scripts/slime.gd<>uid://qu01kp1jtvtn::::res://scenes/stats_component.tscn<>uid://cb45f81kivlvk::::res://scenes/damage_text.tscn
 stats_component.tscn::PackedScene::1165873958350089999::1739902954::0::1::::<><>::res://scripts/stats.gd
-world.tscn::PackedScene::911640714781998046::1739903712::0::1::::<><>::uid://ce4i1j2f1di1d::::res://scenes/player.tscn<>uid://bgpq50pmfitrr::::res://scenes/slime.tscn<>uid://2opbktj7a0pl::::res://sprites/tile.png
+world.tscn::PackedScene::911640714781998046::1740157940::0::1::::<><>::uid://ce4i1j2f1di1d::::res://scenes/player.tscn<>uid://bgpq50pmfitrr::::res://scenes/slime.tscn<>uid://2opbktj7a0pl::::res://sprites/tile.png
 ::res://scenes/HUD/::1739808780
-art_x_button.tscn::PackedScene::5013656160373407856::1739903718::0::1::::<><>::uid://bhu6uq6wa8juw::::res://sprites/arts icons/debuff1.png<>res://scripts/arts/art_x_button.gd<>uid://basdrnmddobbe::::res://sprites/arts icons/progress.png<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
-art_z_button.tscn::PackedScene::7767722184707516491::1739903718::0::1::::<><>::uid://do3f0jyrdapbu::::res://sprites/arts icons/impact 3.png<>res://scripts/arts/art_z_button.gd<>uid://basdrnmddobbe::::res://sprites/arts icons/progress.png<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
-HUD.tscn::PackedScene::9025809752102165023::1739810468::0::1::::<><>::res://scripts/hud.gd<>uid://3dp0woh6kuyy::::res://sprites/HUD test.png<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
+art_c_button.tscn::PackedScene::4196567838955978972::1740154652::0::1::::<><>::uid://ccjmnealjb78g::::res://sprites/arts icons/defense1.png<>res://scripts/arts/art_c_button.gd<>uid://basdrnmddobbe::::res://sprites/arts icons/progress.png<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
+art_v_button.tscn::PackedScene::2277642179870908488::1740157940::0::1::::<><>::uid://cuexh3fqi21lb::::res://sprites/arts icons/impact1.png<>res://scripts/arts/art_v_button.gd<>uid://basdrnmddobbe::::res://sprites/arts icons/progress.png<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
+art_x_button.tscn::PackedScene::5013656160373407856::1740154650::0::1::::<><>::uid://bhu6uq6wa8juw::::res://sprites/arts icons/debuff1.png<>res://scripts/arts/art_x_button.gd<>uid://basdrnmddobbe::::res://sprites/arts icons/progress.png<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
+art_z_button.tscn::PackedScene::2361016984158718361::1740157942::0::1::::<><>::uid://do3f0jyrdapbu::::res://sprites/arts icons/impact 3.png<>res://scripts/arts/art_v_button.gd<>uid://basdrnmddobbe::::res://sprites/arts icons/progress.png<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres
+HUD.tscn::PackedScene::9025809752102165023::1740157942::0::1::::<><>::res://scripts/Hudl.gd<>uid://8vxutejsu8jd::::res://scenes/HUD/art_z_button.tscn<>uid://b0134hhi84gam::::res://scenes/HUD/art_c_button.tscn<>res://scripts/arts/art_z_button.gd<>uid://cdowgjh5s2rjc::::res://scenes/HUD/art_x_button.tscn<>uid://3dp0woh6kuyy::::res://sprites/HUD test.png<>uid://7pko0vmxa5qa::::res://scenes/HUD/art_v_button.tscn<>uid://dms3p0s8bo0ct::::res://fonts/UI font.tres<>uid://dp7kju5pt71s1::::res://sprites/bars/HPBackground.png<>uid://dugkxi6bkf64e::::res://sprites/bars/HPBar.png
 ::res://scripts/::1739141006
 damage_numbers.gd::GDScript::-1::1739015824::0::1::::<>Node<>::
 damgeText.gd::GDScript::-1::1739017096::0::1::::damageText<>Node2D<>::
+hp_label.gd::GDScript::-1::1740154590::0::1::::<>Control<>::
 hud.gd::GDScript::-1::1739293696::0::1::::HUD<>Control<>::
+Hudl.gd::GDScript::-1::1740157858::0::1::::<>Control<>::
 label.gd::GDScript::-1::1739015824::0::1::::<>Label<>::
 player.gd::GDScript::-1::1739198984::0::1::::Player<>CharacterBody2D<>::
 slime.gd::GDScript::-1::1739015824::0::1::::slime<>CharacterBody2D<>::
-stats.gd::GDScript::-1::1739903510::0::1::::stats<>Node2D<>::
+stats.gd::GDScript::-1::1740154290::0::1::::stats<>Node2D<>::
 textDisplayer.gd::GDScript::-1::1739016660::0::1::::damageDisplayer<>Node<>::
 ::res://scripts/arts/::1739292452
 artsList.gd::GDScript::-1::1739900684::0::1::::artsList<>Node<>::
-art_x_button.gd::GDScript::-1::1739903274::0::1::::<>TextureButton<>::
-art_z_button.gd::GDScript::-1::1739902826::0::1::::<>TextureButton<>::
-axil's_arts.gd::GDScript::-1::1739903858::0::1::::<>artsList<>::
+art_c_button.gd::GDScript::-1::1740157816::0::1::::<>TextureButton<>::
+art_v_button.gd::GDScript::-1::1740157828::0::1::::<>TextureButton<>::
+art_x_button.gd::GDScript::-1::1740157850::0::1::::<>TextureButton<>::
+art_z_button.gd::GDScript::-1::1740157822::0::1::::<>TextureButton<>::
+axil's_arts.gd::GDScript::-1::1739910192::0::1::::<>artsList<>::
 ::res://scripts/states/::1739015824
 state.gd::GDScript::-1::1739015824::0::1::::State<>Node<>::
 state_machine.gd::GDScript::-1::1739015824::0::1::::<>Node<>::
 ::res://scripts/states/player states/::1739015824
-battle.gd::GDScript::-1::1739903184::0::1::::battle<>State<>::
+battle.gd::GDScript::-1::1740154288::0::1::::battle<>State<>::
 defeat.gd::GDScript::-1::1739015824::0::1::::defeat<>State<>::
-field.gd::GDScript::-1::1739015824::0::1::::field<>State<>::
+field.gd::GDScript::-1::1740148882::0::1::::field<>State<>::
 ::res://sprites/::1739015996
 Axil directionalaseprite.png::CompressedTexture2D::5977668451694981318::1739476092::1739567162::1::::<><>::
 fergus.png::CompressedTexture2D::5964681321379400756::1739015824::1739196620::1::::<><>::
@@ -70,4 +76,7 @@ impact1.png::CompressedTexture2D::6186286221670627063::1739805884::1739806216::1
 impact2.png::CompressedTexture2D::8752501112085978763::1739806568::1739806790::1::::<><>::
 impact4.png::CompressedTexture2D::8742562533199192708::1739807334::1739807760::1::::<><>::
 impact 3.png::CompressedTexture2D::8200057179498770882::1739806724::1739806790::1::::<><>::
-progress.png::CompressedTexture2D::2423792694222931242::1739808260::1739808264::1::::<><>::
+::res://sprites/bars/::1740152362
+ArtsProgress.png::CompressedTexture2D::4277518150129559503::1739808260::1740152426::1::::<><>::
+HPBackground.png::CompressedTexture2D::8278779133371855990::1740152836::1740152838::1::::<><>::
+HPBar.png::CompressedTexture2D::8576073901686556930::1740152418::1740152426::1::::<><>::

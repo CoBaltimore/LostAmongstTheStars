@@ -1,6 +1,9 @@
 class_name battle
 extends State
+
 signal attackLanded
+signal buttonsStop
+signal damageRecieved
 
 #reference to proper player nodes
 @export var playerStats: stats #player's stat component
@@ -38,12 +41,14 @@ func physicsUpdate(delta: float):
 		if !enemyStats.checkForLife():
 			playerStats.resetHP()
 			enemy.queue_free()
+			emit_signal("buttonsStop")
 			Transitioned.emit(self, "field")
 		#if the distance between the player and enemy is long enough,
 		#reset hp and return to field state
 		if distance.length() >= 150:
 			playerStats.resetHP()
 			enemyStats.resetHP()
+			emit_signal("buttonsStop")
 			Transitioned.emit(self, "field")
 
 func playerAutoAttack():
@@ -60,5 +65,6 @@ func enemyAutoAttack():
 	#if so, restart timer and play the player's damage function
 	if enemyStats.isCooled:
 		enemyAutoCooldownTimer.start()
-		playerStats.damage(enemyStats)
+		if playerStats.damage(enemyStats):
+			emit_signal("damageRecieved")
 		enemyStats.isCooled = false #this tells the game that the cooldown is in effect.

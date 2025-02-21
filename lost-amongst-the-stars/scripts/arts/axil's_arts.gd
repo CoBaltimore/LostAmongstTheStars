@@ -6,13 +6,13 @@ func artZ(target: stats):
 	# Pack arm slam - topples if break is inflicted on target
 	var land: bool
 	land = target.damage(playerStats, 3)
-	if target.broken:
+	if land && target.broken:
 		target.topple()
 
 func artX(target: stats):
 	# Destabilizer - shoot a laser that inflicts paralysis
 	var land: bool
-	land = target.damage(playerStats, 2.5)
+	land = target.damage(playerStats, 2)
 	if land:
 		target.paralysis()
 
@@ -27,7 +27,7 @@ func artV(target: stats):
 func artB(target: stats):
 	# Energy Leech - charges talent art gague 2x as much on hit. not powerful
 	var land: bool
-	land = target.damage(playerStats, 1.5)
+	land = target.damage(playerStats, 1.6)
 	if land:
 		pass
 

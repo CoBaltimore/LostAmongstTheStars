@@ -1,6 +1,8 @@
 class_name field
 extends State
 
+signal buttonStart
+
 @export var player : CharacterBody2D
 
 var enemy : CharacterBody2D
@@ -15,3 +17,4 @@ func physicsUpdate(delta: float):
 		
 		if direction.length() < 75:
 			Transitioned.emit(self, "battle")
+			emit_signal("buttonStart")

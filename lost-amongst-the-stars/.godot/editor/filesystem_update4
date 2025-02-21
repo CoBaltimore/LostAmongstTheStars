@@ -1,8 +1,8 @@
-res://scenes/world.tscn
+res://scripts/hp_label.gd
+res://scenes/player.tscn
 res://fonts/UI font.tres
 res://Animations/animationTree.tres
-res://scripts/stats.gd
-res://scenes/damage_text.tscn
-res://scenes/HUD.tscn
-res://scenes/slime.tscn
-res://scenes/player.tscn
+res://scenes/world.tscn
+res://scenes/HUD/art_v_button.tscn
+res://scenes/HUD/HUD.tscn
+res://scenes/HUD/art_z_button.tscn

@@ -1,105 +1,99 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1uf1dyyiyu5t"]
+[gd_scene load_steps=11 format=3 uid="uid://d1uf1dyyiyu5t"]
 
-[ext_resource type="Script" path="res://scripts/hud.gd" id="1_tga4o"]
-[ext_resource type="Texture2D" uid="uid://3dp0woh6kuyy" path="res://sprites/HUD test.png" id="2_7tnl6"]
-[ext_resource type="LabelSettings" uid="uid://dms3p0s8bo0ct" path="res://fonts/UI font.tres" id="3_2uidt"]
+[ext_resource type="Script" path="res://scripts/Hudl.gd" id="1_vg55o"]
+[ext_resource type="PackedScene" uid="uid://8vxutejsu8jd" path="res://scenes/HUD/art_z_button.tscn" id="2_acfo2"]
+[ext_resource type="PackedScene" uid="uid://b0134hhi84gam" path="res://scenes/HUD/art_c_button.tscn" id="3_opmpr"]
+[ext_resource type="Script" path="res://scripts/arts/art_z_button.gd" id="3_pesds"]
+[ext_resource type="PackedScene" uid="uid://cdowgjh5s2rjc" path="res://scenes/HUD/art_x_button.tscn" id="4_vpu4v"]
+[ext_resource type="Texture2D" uid="uid://3dp0woh6kuyy" path="res://sprites/HUD test.png" id="5_v2l81"]
+[ext_resource type="PackedScene" uid="uid://7pko0vmxa5qa" path="res://scenes/HUD/art_v_button.tscn" id="6_jqkfi"]
+[ext_resource type="LabelSettings" uid="uid://dms3p0s8bo0ct" path="res://fonts/UI font.tres" id="6_rb07p"]
+[ext_resource type="Texture2D" uid="uid://dp7kju5pt71s1" path="res://sprites/bars/HPBackground.png" id="7_5d8hi"]
+[ext_resource type="Texture2D" uid="uid://dugkxi6bkf64e" path="res://sprites/bars/HPBar.png" id="8_bqtpe"]
 
-[node name="Control" type="Control"]
+[node name="HUD" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
-script = ExtResource("1_tga4o")
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vg55o")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
+[node name="ArtZButton" parent="." instance=ExtResource("2_acfo2")]
+layout_mode = 1
+offset_left = -115.0
+offset_top = 72.0
+offset_right = -139.0
+offset_bottom = 48.0
+script = ExtResource("3_pesds")
+
+[node name="ArtCButton" parent="." instance=ExtResource("3_opmpr")]
 layout_mode = 0
-offset_top = -4.0
-offset_right = 256.0
-offset_bottom = 236.0
-texture = ExtResource("2_7tnl6")
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -79.0
+offset_top = 72.0
+offset_right = -63.0
+offset_bottom = 88.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="CharacterLvl1" type="Label" parent="."]
-layout_mode = 2
-offset_left = 49.0
-offset_top = 44.0
-offset_right = 74.0
-offset_bottom = 56.0
-text = "lv:"
-label_settings = ExtResource("3_2uidt")
+[node name="ArtXButton" parent="." instance=ExtResource("4_vpu4v")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -97.0
+offset_top = 72.0
+offset_right = -81.0
+offset_bottom = 88.0
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="CharacterName1" type="Label" parent="."]
-layout_mode = 2
-offset_left = 17.0
-offset_top = 43.5
-offset_right = 47.0
-offset_bottom = 55.5
-text = "NAME
-"
-label_settings = ExtResource("3_2uidt")
+[node name="ArtVButton" parent="." instance=ExtResource("6_jqkfi")]
+layout_mode = 1
+offset_left = -61.0
+offset_top = 72.0
+offset_right = -85.0
+offset_bottom = 48.0
 
-[node name="CharacterHP1" type="Label" parent="."]
-layout_mode = 2
-offset_left = 16.5
-offset_top = 54.5
-offset_right = 83.5
-offset_bottom = 73.5
-text = "HP:"
-label_settings = ExtResource("3_2uidt")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+light_mask = 4
+visibility_layer = 4
+texture = ExtResource("5_v2l81")
 
-[node name="CharacterLvl2" type="Label" parent="."]
-layout_mode = 2
-offset_left = 49.0
-offset_top = 75.5
-offset_right = 74.0
-offset_bottom = 87.5
-text = "lv:"
-label_settings = ExtResource("3_2uidt")
+[node name="PlayerLabelControl" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="CharacterName2" type="Label" parent="."]
-layout_mode = 2
-offset_left = 16.5
-offset_top = 75.5
-offset_right = 46.5
-offset_bottom = 87.5
-text = "NAME"
-label_settings = ExtResource("3_2uidt")
+[node name="PlayerLabel" type="Label" parent="PlayerLabelControl"]
+layout_mode = 0
+offset_left = -109.0
+offset_top = -70.0
+offset_right = -68.0
+offset_bottom = -58.0
+text = "AXIL"
+label_settings = ExtResource("6_rb07p")
 
-[node name="CharacterHP2" type="Label" parent="."]
-layout_mode = 2
-offset_left = 16.5
-offset_top = 86.0
-offset_right = 83.5
-offset_bottom = 105.0
-text = "HP:"
-label_settings = ExtResource("3_2uidt")
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PlayerLabelControl"]
+layout_mode = 0
+offset_left = -110.0
+offset_top = -47.0
+offset_right = -68.0
+offset_bottom = -41.0
+max_value = 40.0
+value = 30.0
+texture_under = ExtResource("7_5d8hi")
+texture_progress = ExtResource("8_bqtpe")
+texture_progress_offset = Vector2(1, 1)
 
-[node name="CharacterName3" type="Label" parent="."]
-layout_mode = 2
-offset_left = 16.0
-offset_top = 108.5
-offset_right = 46.0
-offset_bottom = 120.5
-text = "NAME"
-label_settings = ExtResource("3_2uidt")
-
-[node name="CharacterLvl3" type="Label" parent="."]
-layout_mode = 2
-offset_left = 48.5
-offset_top = 108.5
-offset_right = 73.5
-offset_bottom = 120.5
-text = "lv:"
-label_settings = ExtResource("3_2uidt")
-
-[node name="CharacterHP3" type="Label" parent="."]
-layout_mode = 2
-offset_left = 16.0
-offset_top = 119.0
-offset_right = 83.0
-offset_bottom = 138.0
-text = "HP:"
-label_settings = ExtResource("3_2uidt")
+[node name="HPLabel" type="Label" parent="PlayerLabelControl"]
+layout_mode = 0
+offset_left = -80.0
+offset_top = -58.0
+offset_right = -40.0
+offset_bottom = -39.0
+text = "40"
+label_settings = ExtResource("6_rb07p")

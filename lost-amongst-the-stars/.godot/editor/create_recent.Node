@@ -1,7 +1,10 @@
+Control
+Label
+ProgressBar
+Sprite2D
+TextureProgressBar
 TextureButton
 Node
 artsList
-Label
-TextureProgressBar
 Button
 Node2D

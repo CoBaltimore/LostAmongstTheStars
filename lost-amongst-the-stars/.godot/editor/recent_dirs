@@ -1,6 +1,7 @@
-res://scripts/arts
+res://scripts
 res://sprites/arts icons
+res://scripts/arts
+res://fonts
+res://sprites/bars
 res://scenes/HUD
 res://scenes
-res://scripts
-res://fonts

@@ -159,12 +159,14 @@ libraries = {
 }
 
 [node name="AutoCooldown" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 
 [node name="Stats Component" parent="." node_paths=PackedStringArray("damageNumbers", "autoCooldown") instance=ExtResource("3_pb0e8")]
-MAXHP = 60.0
-pow = 1.0
-dex = 3.0
+MAXHP = 100.0
+pow = 6.0
+def = 0.33
+dex = 8.0
+eva = 2.0
 damageNumbers = NodePath("../DamageText")
 autoCooldown = NodePath("../AutoCooldown")
 
